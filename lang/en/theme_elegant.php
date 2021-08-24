@@ -50,3 +50,7 @@ $string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will
 $string['rawscsspre'] = 'Raw initial SCSS';
 // Raw initial SCSS setting help text.
 $string['rawscsspre_desc'] = 'In this field you can provide initialising SCSS code, it will be injected before everything else. Most of the time you will use this setting to define variables.';
+// Background image for login page.
+$string['loginbackgroundimage'] = 'Login page background image';
+// Background image for login page.
+$string['loginbackgroundimage_desc'] = 'An image that will be stretched to fill the background of the login page.';
