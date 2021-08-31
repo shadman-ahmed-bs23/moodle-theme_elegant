@@ -126,7 +126,7 @@ class theme_elegant_core_course_renderer extends core_course_renderer {
             $output .= $contentpart;
         }
 
-        $output .= 'Added on date: ';
+        $output .= 'Added on Date: ';
         $output .= html_writer::end_tag('span');
         $output .= date_format_string($mod->added, "%Y-%m-%d");
         $output .= html_writer::end_tag('span');

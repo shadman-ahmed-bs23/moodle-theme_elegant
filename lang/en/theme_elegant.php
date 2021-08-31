@@ -54,3 +54,7 @@ $string['rawscsspre_desc'] = 'In this field you can provide initialising SCSS co
 $string['loginbackgroundimage'] = 'Login page background image';
 // Background image for login page.
 $string['loginbackgroundimage_desc'] = 'An image that will be stretched to fill the background of the login page.';
+
+// Card background setting.
+$string['cardbg'] = 'Content background';
+$string['cardbg_desc'] = 'A setting to control the background colour for content.';

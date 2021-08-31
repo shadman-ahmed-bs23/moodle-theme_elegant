@@ -69,8 +69,17 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    // Card background color settings.
+    $name = 'theme_elegant/cardbg';
+    $title = get_string('cardbg', 'theme_elegant');
+    $desc = get_string('cardbg_desc', 'theme_elegant');
+    $setting = new admin_setting_configcolourpicker($name, $title, $desc, '#ffffff');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     // Must add the page after definiting all the settings!
     $settings->add($page);
+
 
     // Advanced settings.
     $page = new admin_settingpage('theme_elegant_advanced', get_string('advancedsettings', 'theme_elegant'));
@@ -90,14 +99,14 @@ if ($ADMIN->fulltree) {
     $settings->add($page);
 
     // Login page background setting.
-    // We use variables for readability.
-    $name = 'theme_elegant/loginbackgroundimage';
-    $title = get_string('loginbackgroundimage', 'theme_elegant');
-    $description = get_string('loginbackgroundimage_desc', 'theme_elegant');
-    // This creates the new setting.
-    $setting = new admin_setting_configstoredfile($name, $title, $description, 'loginbackgroundimage');
-    // This function will copy the image into the data_root location it can be served from.
-    $setting->set_updatedcallback('theme_photo_update_settings_images');
-    // We always have to add the setting to a page for it to have any effect.
-    $page->add($setting);
+//    // We use variables for readability.
+//    $name = 'theme_elegant/loginbackgroundimage';
+//    $title = get_string('loginbackgroundimage', 'theme_elegant');
+//    $description = get_string('loginbackgroundimage_desc', 'theme_elegant');
+//    // This creates the new setting.
+//    $setting = new admin_setting_configstoredfile($name, $title, $description, 'loginbackgroundimage');
+//    // This function will copy the image into the data_root location it can be served from.
+//    $setting->set_updatedcallback('theme_photo_update_settings_images');
+//    // We always have to add the setting to a page for it to have any effect.
+//    $page->add($setting);
 }
