@@ -134,8 +134,8 @@ body {
 
   .breadcrumb li.current > * {
     color: #fff;
-    background-color: #96c03d;
-    border-color: #96c03d;
+    background-color: $secondary;
+    border-color: $secondary;
   }
 
   .breadcrumb li:first-of-type > * {

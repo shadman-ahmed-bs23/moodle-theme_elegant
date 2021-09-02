@@ -41,8 +41,31 @@ function theme_elegant_get_main_scss_content($theme) {
         // Safety fallback - maybe new installs etc.
         $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
     }
+    $pre = '';
+    $configurable = [
+        // Config key => [variableName, ...].
+        'brandcolor' => ['brand-primary'],
+        'cardbg' => ['card-bg'],
+    ];
+
+    // Prepend variables first.
+    foreach ($configurable as $configkey => $targets) {
+        $value = isset($theme->settings->{$configkey}) ? $theme->settings->{$configkey} : null;
+        if (empty($value)) {
+            continue;
+        }
+        array_map(function ($target) use (&$pre, $value) {
+            $pre .= '$' . $target . ': ' . $value . ";\n";
+        }, (array)$targets);
+    }
+
+    // Prepend pre-scss.
+    if (!empty($theme->settings->scsspre)) {
+        $pre .= $theme->settings->scsspre;
+    }
     // Pre CSS - this is loaded AFTER any prescss from the setting but before the main scss.
-    $pre = file_get_contents($CFG->dirroot . '/theme/elegant/scss/pre.scss');
+    $pre .= file_get_contents($CFG->dirroot . '/theme/elegant/scss/pre.scss');
+
     // Post CSS - this is loaded AFTER the main scss but before the extra scss from the setting.
     $post = file_get_contents($CFG->dirroot . '/theme/elegant/scss/post.scss');
 
